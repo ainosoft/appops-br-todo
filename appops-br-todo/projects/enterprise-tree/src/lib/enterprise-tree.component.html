@@ -1,0 +1,76 @@
+<div class="treeBgColor enterp-tree-container">
+    <mat-toolbar class="treeBgColor action-bar" *ngIf="enableActionToolbar.enable">
+        <h2>{{ treeHeader }} |</h2>
+        <span> Showing all {{ treeHeader + "s" | lowercase }}</span>
+    </mat-toolbar>
+
+    <mat-toolbar class="search-toolbar" *ngIf="enableSearchToolBar.enable">
+
+        <mat-form-field>
+            <input matInput placeholder="Search" (keyup)="filterNodes($event.target.value)">
+        </mat-form-field>
+
+    </mat-toolbar>
+
+    <div class="main-tree-container">
+        <div class="tree-sidenav-card">
+
+            <cdk-virtual-scroll-viewport CdkScrollable itemSize="1" id="example-viewport1"
+                (scroll)="getNextBatchOfPage()">
+
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+
+                    <mat-tree-node *matTreeNodeDef="let node; when: hasChild;" matTreeNodePadding class="parent-node"
+                        matTreeNodeToggle (click)="displayCurrentSearchNodeDetails(node)">
+                        <button mat-icon-button [attr.aria-label]="node.item" class="toggle-button" matTreeNodeToggle>
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button>
+                        {{node.item}}
+
+                        <div class="dropdown">
+                            <button mat-icon-button class="app-dropdown-button" aria-label="Example icon-button with a menu"
+                                (click)="showDropdown($event)">
+                                <mat-icon class="app-dropdown-button">more_vert</mat-icon>
+                            </button>
+
+                            <div class="dropdown-content">
+                                <a href="#" (click)="openAppInSameWindow(openAppSameWindow.token, node.item);">
+                                    <mat-icon>apps</mat-icon>
+                                    <span class="dropdown-item">App</span>
+                                </a>
+                                <a href="#" (click)="openAppInNewTab(openAppNewTab.token, node.item);">
+                                    <mat-icon>launch</mat-icon>
+                                    <span class="dropdown-item">Open in new window</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <mat-progress-bar *ngIf="node.isLoading" mode="indeterminate" class="example-tree-progress-bar">
+                        </mat-progress-bar>
+                    </mat-tree-node>
+                </mat-tree>
+
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <div class="tree-details-container">
+            <div *ngIf="enableInitialText.enable" style="padding: 29px;">Select a tree node to see details.</div>
+
+            <mat-card *ngIf="enableNodeDetails.enable" class="node-detail-card">
+                <div class="node-fields">
+                    <div class="detail-card-title">Summary</div>
+                    <p *ngFor="let element of currentNodeDetailList | keyvalue">{{element.key}} : {{element.value}}</p>
+                </div>
+
+                <div class="leaf-node-details" *ngIf="enableLeafNodeDetails.enable">
+                    <div class="leaf-node-title">{{leafNodeTitle}}</div>
+                    <div id="leaf-container">
+                        <div class="th-div"></div>
+                    </div>
+                    <!-- <p *ngFor="let e of currentLeafNodeDetailList | keyvalue">{{e.value}}</p> -->
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

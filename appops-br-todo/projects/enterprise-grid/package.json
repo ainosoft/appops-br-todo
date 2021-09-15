@@ -1,0 +1,14 @@
+{
+  "name": "enterprise-grid",
+  "version": "0.0.11",
+  "peerDependencies": {
+    "@angular/common": "^8.2.13",
+    "@angular/core": "^8.2.13",
+    "@angular/platform-browser": "^8.2.14",
+    "@angular/platform-browser-dynamic": "~8.2.0",
+    "@angular/compiler": "^8.2.14",
+    "rxjs": "^6.5.4",
+    "zone.js": "^0.9.1",
+    "@angular/material": "^8.2.0"
+  }
+}

@@ -1,0 +1,159 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.gridBgColor {
+    background: #ebecee;
+}
+
+/** Action toolbar styles */
+.action-bar {
+    h2 {
+        margin-left: 5px;
+        color: #414c55;
+        font-family: "Questrial", sans-serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    span {
+        font-weight: 100;
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 15px;
+        margin-left: 2px;
+    }
+
+    .action-button {
+        color: #3367d6;
+    }
+
+    .pagination-toggle {
+        position: absolute;
+        right: 15px;
+    }
+}
+
+::ng-deep .mat-slide-toggle-thumb {
+    background-color: #5f6368;
+}
+
+::ng-deep .mat-slide-toggle-bar {
+    background-color: #d3d3d3;
+}
+
+/** Search toolbar styles */
+.search-toolbar {
+    background: white;
+
+    .filter-button, .clear-Filter {
+        border: 1px dashed rgba(0, 0, 0, 0.26);
+        border-radius: 34px;
+        transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        color: rgba(0, 0, 0, 0.54);
+    }
+
+    .clear-Filter {
+        position: absolute;
+        right: 10px;
+    }
+
+    .search-field, .search-placeholder {
+        border: none;
+        font-size: 14px;
+        height: 40px;
+        min-width: 200px;
+        outline: none;
+        padding: 0;
+        margin: 21px 14px;
+    }
+
+    .search-input {
+        border-spacing: 0 0px;
+    }
+
+    .button-grup {
+        position: absolute;
+        display: flex;
+
+        .filter-info-container {
+            display: none;
+    
+            .filter-info {
+                background-color: lightgray;
+                border-radius: 25px;
+                font-size: 15px;
+                padding: 0px 5px 0px 5px;
+                margin: 21px 14px;
+            }
+        }
+
+        .bulk-delete-icon {
+            display: none;
+        }
+    }
+
+    .search-form-field {
+        display: none;
+        margin-top: 14px;
+        font-size: 12px;
+    
+        .search-submit-icon {
+            cursor: pointer;
+            color: #3367d6;
+            font-size: x-large;
+        }
+
+        .close-icon {
+            display: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    }
+}
+
+/** Common styles */
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    height: 55px;
+}
+
+* {
+    word-wrap: break-word;
+    border-spacing: 0 5px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: lightseagreen;
+}
+
+/** Styles for Table */
+.table-card {
+    padding: 11px;
+
+    .th-div {
+        width: 93.58%;
+        display: flex;
+    }
+
+    #example-viewport1 {
+        height: calc(100vh - 168px);
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
+
+.footer {
+    background: #f0f1f3;
+    font: 400 13.3333px Arial;
+    color: #5f6368;
+    position: fixed;
+    bottom: 0;
+}
+

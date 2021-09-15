@@ -1,0 +1,76 @@
+<div class="gridBgColor enterp-grid-container" id="enterp-grid-container">
+  <mat-toolbar class="gridBgColor action-bar" *ngIf="enableActionToolbar.enable">
+    <h2>{{ gridHeader }} |</h2>
+    <span> Showing all {{ gridHeader + "s" | lowercase }}</span>
+
+    <div *ngFor="let coreAction of coreActions" >
+      <button mat-button class="action-button" (click)="executeCoreAction(coreAction.token)">
+        {{coreAction.iconName}}
+      </button>
+    </div>
+    
+  </mat-toolbar>
+
+  <!-- Search Tool bar -->
+  <mat-toolbar class="search-toolbar" *ngIf="enableSearchToolbar.enable">
+    <div class="button-grup">
+      <!-- Show the search div after popup -->
+      <div class="filter-info-container">
+        <div *ngFor="let name of displayFilterValue" class="filter-value-div">
+          <p class="filter-info">{{ name }}</p>
+        </div>
+      </div>
+
+      <!-- Column selector -->
+      <mat-form-field apperance="outline" class="search-field" *ngIf="enableSearchBar.enable">
+        <mat-label>Select Column</mat-label>
+        <mat-select class="search-input">
+          <mat-option *ngFor="let columnName of columnNameSuggestion" (click)="openFilterInput(columnName)" [value]="columnName">
+            {{ columnName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Text search -->
+      <div class="search-form-field">
+        <mat-form-field appearance="outline">
+          <mat-label class="search-label"></mat-label>
+          <input matInput type="text" placeholder="Search" #inputValue [(ngModel)]="searchValue"/>
+          <mat-icon matPrefix>search</mat-icon>
+          <mat-icon matSuffix class="search-submit-icon" (click)="filterSubmit(inputValue.value)">arrow_forward</mat-icon>
+        </mat-form-field>
+        <mat-icon class="close-icon" (click)="closeFilterInput();">close</mat-icon>
+      </div>
+
+      <!-- Add filter button -->
+      <div class="search-placeholder" *ngIf="enableSearchPlaceholder.enable">
+        <button mat-button class="filter-button" (click)="toggleToSearchBar(enableSearchPlaceholder.enable)">
+          <mat-icon>add</mat-icon> Add a filter
+        </button>
+      </div>
+      
+    </div>
+
+    <!--Clear Filter button-->
+    <button mat-button class="clear-Filter" *ngIf="clearFliter" (click)="clearAddedFilter()">
+      Clear Filter
+    </button>
+  
+  </mat-toolbar>
+
+  <mat-toolbar class="bulk-actions-toolbar" *ngIf="enableBulkActionToolbar.enable">
+
+  </mat-toolbar>
+
+  <div class="table-card card">
+    <div class="th-div"></div>
+
+    <div class="cdk-container">
+      <cdk-virtual-scroll-viewport  itemSize="1" autosize id="example-viewport1" (scroll)="getNextBatchOfPage()">
+      </cdk-virtual-scroll-viewport>
+    </div>
+    <mat-toolbar class="footer" *ngIf="enableFooterToolbar.enable">
+    
+    </mat-toolbar>
+  </div>
+</div>

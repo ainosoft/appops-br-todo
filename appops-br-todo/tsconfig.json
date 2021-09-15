@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "enterprise-grid": [
+        "dist/enterprise-grid"
+      ],
+      "enterprise-grid/*": [
+        "dist/enterprise-grid/*"
+      ],
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
