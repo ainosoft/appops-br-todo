@@ -3,9 +3,12 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/cor
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EnterpriseGridModule } from 'projects/enterprise-grid/src/public-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TodoComponent } from './todo/todo.component';
+import { EnterpriseGridModule } from '@ainosoft/appops-br-core-components/components/enterprise-grid/dist/enterprise-grid';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from 'src/services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,12 @@ import { TodoComponent } from './todo/todo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     EnterpriseGridModule,
     BrowserAnimationsModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    )
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
