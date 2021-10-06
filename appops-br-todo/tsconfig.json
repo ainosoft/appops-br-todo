@@ -17,7 +17,19 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],"plugins": [
+      {
+        "transform": "./node_modules/@ainosoft/appops-br-core-components/components/appops-common/transformer/transformer.js"
+      }
+    ],
+    "paths": {
+      "enterprise-grid": [
+        "node_modules/@ainosoft/appops-br-core-components/components/enterprise-grid/dist/enterprise-grid"
+      ],
+      "enterprise-grid/*": [
+        "node_modules/@ainosoft/appops-br-core-components/components/enterprise-grid/dist/enterprise-grid/*"
+      ]  
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
