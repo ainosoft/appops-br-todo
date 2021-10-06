@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,21 @@ export class TodoInMemoryService {
 
   constructor(@Inject(HttpClient) private httpClient: HttpClient) { }
 
-  getToDosByPage(pageNumber: number, pageSize: number): Observable<any> {
-    return this.httpClient.get(this.todosUrl);
+  getToDosByPage(pageNumber: number, pageSize: number): Promise<Object> {
+
+    let promise = new Promise((resolve, reject) => {
+      this.httpClient.get(this.todosUrl).toPromise().then(
+        result => {
+          resolve(result);
+          console.log(result);
+        },
+        error => {
+          reject(error);
+          console.log(error);
+        }
+      );
+    });
+
+    return promise;
   }
 }
