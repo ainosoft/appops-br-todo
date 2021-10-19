@@ -1,0 +1,8 @@
+annotationClass: com.demo.AddressBook.core.AddressBook
+modules:
+- com.demo.AddressBook.injection.AddressBookModule
+config:
+    org.appops.logging.logger.config.LoggerConfig:
+      destinationLogger: JUL
+      aggregateLogs: false
+      level: ALL
