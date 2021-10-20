@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToDo } from 'src/assets/TodoData';
+import { TodoApi } from "src/server-integration/impl/TodoApi.js";
 
 export interface TodoData {
   todoId: number;
@@ -23,24 +24,46 @@ const NameArray: string[] = [
   templateUrl: './todo-angular-grid.component.html',
   styleUrls: ['./todo-angular-grid.component.scss']
 })
-export class TodoAngularGridComponent implements AfterViewInit {
+export class TodoAngularGridComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  todoData1;
+
+  todoService = new TodoApi();
 
   constructor(private router: Router) {
 
-    console.log("inside todo-grid", ToDo);
-    for (let i = 0; i < ToDo.length; i++) {
-      IdArray.push(ToDo[i].todoId);
-      NameArray.push(ToDo[i].todoName);
-    }
-    const todoData = Array.from({ length: ToDo.length }, (_, k) => createNewUser(k));
-    this.dataSource = new MatTableDataSource(todoData);
+    // console.log("inside todo-grid", ToDo);
+    // for (let i = 0; i < ToDo.length; i++) {
+    //   IdArray.push(ToDo[i].todoId);
+    //   NameArray.push(ToDo[i].todoName);
+    // }
+
+
+    this.todoService.getTodoList().setServiceName("TodoService").get('/getTodoList').then(
+      result => {
+        console.log(result);
+        this.todoData1 = result;
+        for (let i = 0; i < result.length; i++) {
+          IdArray.push(result[i].todoId);
+          NameArray.push(result[i].todoName);
+        }
+        const todoData = Array.from({ length: result.length }, (_, k) => createNewUser(k));
+        this.dataSource = new MatTableDataSource(todoData);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
   }
 
+
+
   ngOnInit(): void {
+
   }
 
 

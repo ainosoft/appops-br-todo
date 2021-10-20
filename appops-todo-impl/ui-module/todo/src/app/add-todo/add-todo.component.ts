@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToDo } from 'src/assets/TodoData';
+import { TodoSlim } from 'src/common/TodoSlim';
+import { TodoApi } from "src/server-integration/impl/TodoApi.js";
 
 @Component({
   selector: 'app-add-todo',
@@ -15,8 +16,8 @@ export class AddTodoComponent implements OnInit {
 
   todoForm = new FormGroup({
     id: new FormControl(null),
-    todoId: new FormControl('', Validators.required),
     todoName: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
   });
 
   submitted: boolean;
@@ -33,11 +34,22 @@ export class AddTodoComponent implements OnInit {
       }
     }
   }
-
+  todoService = new TodoApi();
   addTodo(TodoData: any) {
     console.log("Inside addTodo", TodoData);
-    ToDo.push({ todoId: TodoData.todoId, todoName: TodoData.todoName });
-    console.log("ToDo array", ToDo)
+    let todoName = TodoData.todoName;
+    let todoSlim = new TodoSlim();
+    todoSlim.setTodoId = TodoData.todoId;
+    todoSlim.setTodoName = TodoData.todoName;
+
+    this.todoService.addNewTodo(todoName).setServiceName("TodoService").post("/addNewTodo").then(
+      result => {
+        console.log(result);
+      },
+      error => {
+        console.log(error);
+      }
+    )
     this.router.navigate(['todo-grid']);
   }
 

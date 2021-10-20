@@ -26,6 +26,12 @@
 			<artifactId>appops-br-core</artifactId>
 			<version>0.5.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.appops</groupId>
+			<artifactId>address-book-slim</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 </project>

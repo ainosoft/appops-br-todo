@@ -1,16 +1,16 @@
 ---
-serviceName: AddressBook
-webappDirectory: "webapp"
+serviceName: "AddressBook"
+webappDirectory: "/home/adminpc12/git/appops-br-todo/address-book-impl/webapp"
 gatewayUrl: "http://localhost:8080/ServiceStore"
-annotationClass: com.demo.AddressBook.core.AddressBook
+annotationClass: "com.demo.AddressBook.core.AddressBook"
 executionMode: "SERVICE"
-packageToScan: com.ainosoft.addressbook
+packageToScan: "com.demo" 
 webConfig:
   ip: "http://localhost"
   port: 8090
   contextPath: ""
 containerConfig:
-  dockerFileOrBaseDirectory: "Dockerfile"
+  dockerFileOrBaseDirectory: "/home/adminpc12/git/appops-br-todo/address-book-impl/Dockerfile"
 jettyConfig:
   driver: "com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
   url: "jdbc:mysql://localhost:3306/sessions"
@@ -19,10 +19,16 @@ jettyConfig:
 serviceConfig:
   org.appops.logging.logger.config.LoggerConfig:
     destinationLogger: "LOG4J"
-    overrideLoggers: []
+    handlers:
+    - config:
+        NAME: "CONSOLE"
+        ENABLED: true
+        LEVEL: "ALL"
+      filters: []
+    overrideLoggers: null
     aggregateLogs: false
     level: "ALL"
-    
-    
-    
-    
+    storage:
+      filepath: "LogStorage.log"
+      maxFileSize: null
+      ttl: "Oct 13,2021"

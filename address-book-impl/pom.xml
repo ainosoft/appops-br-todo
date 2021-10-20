@@ -100,7 +100,7 @@
 						<transformer
 							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 							<manifestEntries>
-								<Main-Class>com.ainosoft.addressbook.app.AddressBookEntryPoint</Main-Class>
+								<Main-Class>com.demo.AddressBook.app.AddressBookEntryPoint</Main-Class>
 								<service-name>AddressBook</service-name>
 							</manifestEntries>
 						</transformer>
@@ -119,9 +119,9 @@
 			<plugin>
 				<groupId>org.appops</groupId>
 				<artifactId>appops-br-maven-plugin</artifactId>
-				<version>0.4.0</version>
+				<version>0.5.0</version>
 				<configuration>
-					<serviceAnnotation>com.ainosoft.addressbook.core.AddressBook</serviceAnnotation>
+					<serviceAnnotation>com.demo.AddressBook.core.AddressBook</serviceAnnotation>
 					<containerType>DOCKER</containerType>
 					<profileRoot>env-config/default/</profileRoot>
 				</configuration>

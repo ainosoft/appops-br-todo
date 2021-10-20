@@ -1,0 +1,3 @@
+annotationClass: com.demo.AddressBook.core.AddressBook
+modules:
+- com.demo.AddressBook.injection.AddressBookSlimModule
