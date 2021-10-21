@@ -1,7 +1,9 @@
 
 package com.demo.AddressBook.slim;
 
-public class AddressBookSlim {
+import java.io.Serializable;
+
+public class AddressBookSlim implements Serializable {
 
   private String address;
 

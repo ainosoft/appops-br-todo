@@ -9,5 +9,8 @@ export class TodoApi {
     deleteTodo(todoId) {
         return new HttpServiceInvoker(todoId);
     }
+    getAddresses() {
+        return new HttpServiceInvoker();
+    }
 }
 //# sourceMappingURL=TodoApi.js.map

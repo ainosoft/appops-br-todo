@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TodoSlim } from 'src/common/TodoSlim';
 import { TodoApi } from "src/server-integration/impl/TodoApi.js";
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -11,7 +12,7 @@ import { TodoApi } from "src/server-integration/impl/TodoApi.js";
 })
 export class AddTodoComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public todoServi: TodoService) { }
 
 
   todoForm = new FormGroup({
@@ -42,7 +43,7 @@ export class AddTodoComponent implements OnInit {
     todoSlim.setTodoId = TodoData.todoId;
     todoSlim.setTodoName = TodoData.todoName;
 
-    this.todoService.addNewTodo(todoName).setServiceName("TodoService").post("/addNewTodo").then(
+    this.todoService.addNewTodo(todoName).setServiceName("TodoService/TodoService").post("/addNewTodo").then(
       result => {
         console.log(result);
       },

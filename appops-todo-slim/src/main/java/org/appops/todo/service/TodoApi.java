@@ -21,7 +21,7 @@ public interface TodoApi {
   @ServiceOp(method = RequestMethod.POST, path = "deleteTodo")
   public ArrayList<TodoSlim> deleteTodo(Integer todoId) throws Exception;
 
-  @ServiceOp(method = RequestMethod.GET, path = "getAddressList")
+  @ServiceOp(method = RequestMethod.GET, path = "getAddresses")
   public ArrayList<AddressBookSlim> getAddressList() throws Exception;
 
   @ServiceOp(method = RequestMethod.GET, path = "sayHello")

@@ -1,11 +1,12 @@
-serviceName: "AddressBook"
+---
+serviceName: "TodoService"
 webappDirectory: "webapp"
 gatewayUrl: "http://ServiceStore:8080"
-annotationClass: "com.demo.AddressBook.core.AddressBook"
+annotationClass: org.appops.todo.core.TodoService
 executionMode: "SERVICE"
-packageToScan: "com.demo" 
+packageToScan: org.appops.todo
 webConfig:
-  ip: "http://AddressBook"
+  ip: "http://TodoService"
   port: "8080"
   contextPath: ""
 containerConfig:
@@ -21,3 +22,7 @@ serviceConfig:
     overrideLoggers: []
     aggregateLogs: false
     level: "ALL"
+    
+    
+    
+    

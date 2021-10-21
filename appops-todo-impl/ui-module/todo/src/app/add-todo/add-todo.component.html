@@ -11,17 +11,20 @@
         </div>
         <div class="form-group">
             <mat-form-field appearance="outline" class="input">
-                <mat-label> Tag Address</mat-label>
-                <input formControlName="address" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.address.errors}" matInput>
+                <mat-label> Tag Address </mat-label>
+                <mat-select formControlName="address" class="form-control">
+                    <mat-option *ngFor="let addr of todoServi.addressList" [value]="addr.address">
+                        {{addr.address}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
-            <div class="invalid-feedback" *ngIf="submitted && formControls.address.errors">This is required</div>
         </div>
-
+        <br><br>
         <mat-button-field>
             <br>
 
-            <button color="cancel" mat-raised-button (click)="onCancel()">Cancel</button>
-            <button color="success" mat-raised-button type="submit" style="margin-left: 2%;">Save Todo</button>
+            <button id="cancel" mat-raised-button (click)="onCancel()">Cancel</button>
+            <button id="save" mat-raised-button type="submit" style="margin-left: 2%;">Save Todo</button>
             <br>
         </mat-button-field>
     </form>

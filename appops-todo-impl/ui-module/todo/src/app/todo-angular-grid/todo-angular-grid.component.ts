@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToDo } from 'src/assets/TodoData';
 import { TodoApi } from "src/server-integration/impl/TodoApi.js";
+import { TodoService } from '../services/todo.service';
 
 export interface TodoData {
   todoId: number;
@@ -33,16 +34,9 @@ export class TodoAngularGridComponent implements OnInit, AfterViewInit {
 
   todoService = new TodoApi();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public todo: TodoService) {
 
-    // console.log("inside todo-grid", ToDo);
-    // for (let i = 0; i < ToDo.length; i++) {
-    //   IdArray.push(ToDo[i].todoId);
-    //   NameArray.push(ToDo[i].todoName);
-    // }
-
-
-    this.todoService.getTodoList().setServiceName("TodoService").get('/getTodoList').then(
+    this.todoService.getTodoList().setServiceName("TodoService/TodoService").get('/getTodoList').then(
       result => {
         console.log(result);
         this.todoData1 = result;
@@ -52,6 +46,16 @@ export class TodoAngularGridComponent implements OnInit, AfterViewInit {
         }
         const todoData = Array.from({ length: result.length }, (_, k) => createNewUser(k));
         this.dataSource = new MatTableDataSource(todoData);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
+    this.todoService.getAddresses().setServiceName("TodoService/TodoService").get('/getAddresses').then(
+      result => {
+        console.log(result);
+        this.todo.addressList = result;
       },
       error => {
         console.log(error);

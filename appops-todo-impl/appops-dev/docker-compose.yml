@@ -75,6 +75,25 @@ services:
 
         networks: 
             - appops-dev
+  
+    todo_service:
+        build : TodoService
+        container_name : TodoService
+        restart : always
+        init: true
+        volumes:
+            - "/etc/timezone:/etc/timezone:ro"
+            - "/etc/localtime:/etc/localtime:ro"
+            - "/dev/shm:/dev/shm"
+        depends_on:
+            - brdatabase
+            - service_store
+
+        ports:
+              - "8080"
+
+        networks: 
+            - appops-dev
 
     addressbook_service:
         build : AddressBook
@@ -91,9 +110,8 @@ services:
 
         ports:
               - "8080"
-
         networks: 
-            - appops-dev
+              - appops-dev
     
     apache2:
         build : apache2
