@@ -1,0 +1,4 @@
+/home/siddhu-07/Appops-demonstration/hello-service-slim/src/main/java/org/appops/hello/core/HelloService.java
+/home/siddhu-07/Appops-demonstration/hello-service-slim/src/main/java/org/appops/hello/service/HelloServiceManager.java
+/home/siddhu-07/Appops-demonstration/hello-service-slim/src/main/java/org/appops/hello/core/HelloServiceConfig.java
+/home/siddhu-07/Appops-demonstration/hello-service-slim/src/main/java/org/appops/hello/injection/HelloServiceSlimModule.java

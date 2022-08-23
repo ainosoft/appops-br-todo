@@ -1,3 +1,5 @@
-annotationClass: org.appops.job.core.Scheduler
-modules: 
-    - "org.appops.job.SchedulerSlimModule"
+---
+annotationClass: "org.appops.job.core.Scheduler"
+config: {}
+modules:
+- "org.appops.job.SchedulerSlimModule"

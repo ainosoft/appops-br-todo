@@ -1,0 +1,4 @@
+org/appops/hello/service/HelloServiceManager.class
+org/appops/hello/injection/HelloServiceSlimModule.class
+org/appops/hello/core/HelloServiceConfig.class
+org/appops/hello/core/HelloService.class

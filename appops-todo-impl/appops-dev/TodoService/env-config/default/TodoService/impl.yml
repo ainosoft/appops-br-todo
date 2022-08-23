@@ -1,8 +1,0 @@
-annotationClass: org.appops.todo.core.TodoService
-modules:
-- org.appops.todo.injection.TodoServiceModule
-config:
-    org.appops.logging.logger.config.LoggerConfig:
-      destinationLogger: JUL
-      aggregateLogs: false
-      level: ALL

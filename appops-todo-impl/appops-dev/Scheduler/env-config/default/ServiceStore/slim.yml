@@ -1,3 +1,5 @@
-modules:
-      - "org.appops.service.injection.ServiceStoreSlimModule"
+---
 annotationClass: "org.appops.slim.base.core.ServiceStore"
+config: {}
+modules:
+- "org.appops.service.injection.ServiceStoreSlimModule"

@@ -1,3 +1,5 @@
-modules:
-      - "org.appops.cache.slim.CacheSlimModule"
+---
 annotationClass: "org.appops.cache.core.CacheService"
+config: {}
+modules:
+- "org.appops.cache.slim.CacheSlimModule"

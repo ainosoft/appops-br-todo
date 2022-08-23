@@ -1,4 +1,0 @@
-annotationClass: org.appops.todo.core.TodoService
-modules:
-- org.appops.todo.core.TodoSlimModule
-
