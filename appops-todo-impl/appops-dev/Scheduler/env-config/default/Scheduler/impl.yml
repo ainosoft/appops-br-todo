@@ -1,14 +1,7 @@
-annotationClass: org.appops.job.core.Scheduler
+modules: 
+  - org.appops.scheduler.injection.SchedulerModule
 config: 
-   org.appops.entitystore.hibernate.configuration.SchemaConfig: 
-      commonConfig: 
-        hibernate.connection.autoReconnect: "true"
-        hibernate.connection.driver_class: "com.mysql.jdbc.Driver"
-        hibernate.connection.password: "mysql#htznr"
-        hibernate.connection.url: "jdbc:mysql://brdatabase:3306/Scheduler"
-        hibernate.connection.username: "root"
-        hibernate.dialect: "org.hibernate.dialect.MySQLDialect"
-   org.appops.logging.logger.config.LoggerConfig: 
+  org.appops.logging.logger.config.LoggerConfig: 
     aggregateLogs: false
     destinationLogger: JUL
     handlers: 
@@ -22,6 +15,3 @@ config:
         name: FILE
         pattern: "[%-5d] %-5p  - %m%n"
     level: ALL
-modules: 
-  - org.appops.scheduler.injection.SchedulerModule
-  - org.appops.entitystore.injection.EntityStoreModule

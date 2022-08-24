@@ -1,1 +1,1 @@
-FROM ghcr.io/appops-platform/appops-dev-service-store-0.7.0:latest
+FROM ghcr.io/appops-platform/appops-dev-service-store-0.5.0:latest

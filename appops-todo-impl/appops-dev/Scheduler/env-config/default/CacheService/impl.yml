@@ -1,7 +1,7 @@
----
-annotationClass: "org.appops.cache.core.CacheService"
-modules:
-      - "org.appops.cache.injection.GuavaCacheServiceModule"
+annotationClass: org.appops.cache.core.CacheService
+modules: 
+  implModules: 
+    - org.appops.cache.injection.GuavaCacheServiceModule
 config:
     org.appops.cache.config.GuavaCacheConfig: 
       expireAfterAccessInMinutes: ""

@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Linux (x86_64)
+CREATE DATABASE  IF NOT EXISTS `sessions` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `sessions`;
+-- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: Scheduler
+-- Host: localhost    Database: sessions
 -- ------------------------------------------------------
--- Server version	5.7.35
+-- Server version	5.7.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,49 +16,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Current Database: `Scheduler`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `Scheduler` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `Scheduler`;
-
---
--- Table structure for table `job_pipeline`
---
-
-DROP TABLE IF EXISTS `job_pipeline`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `job_pipeline` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `converter_interface_name` varchar(100) DEFAULT NULL,
-  `converter_service_name` varchar(100) DEFAULT NULL,
-  `sch_expression` varchar(45) DEFAULT NULL,
-  `job_info` longblob,
-  `createdOn` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `job_pipeline`
---
-
-LOCK TABLES `job_pipeline` WRITE;
-/*!40000 ALTER TABLE `job_pipeline` DISABLE KEYS */;
-/*!40000 ALTER TABLE `job_pipeline` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Current Database: `sessions`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sessions` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `sessions`;
 
 --
 -- Table structure for table `JettySessions`
@@ -90,6 +49,7 @@ CREATE TABLE `JettySessions` (
 
 LOCK TABLES `JettySessions` WRITE;
 /*!40000 ALTER TABLE `JettySessions` DISABLE KEYS */;
+INSERT INTO `JettySessions` VALUES ('AddressBook1dl6mfq5fcr2j569obhpixs1d0','','0.0.0.0','AddressBook',1634557472301,1634557472301,1634557472301,0,1634557472338,1634559272321,1800000,_binary '�\�\0sr\0java.lang.Integer⠤���8\0I\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0'),('AddressBookqrab8tko0kkygysr86doc7p00','','0.0.0.0','ServiceStore',1634557837759,1634557807496,1634557658150,0,1634557837780,1634559637780,1800000,_binary '�\�\0sr\0java.lang.Integer⠤���8\0I\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0'),('ServiceStore1ahkysj0hoglf1xj9xhknruhdk2','','0.0.0.0','ServiceStore',1634558315699,1634558070569,1634557886628,0,1634558315717,1634560115717,1800000,_binary '�\�\0sr\0java.lang.Integer⠤���8\0I\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0'),('ServiceStore1ddk0fwzw784paed7m2sqahw21','','0.0.0.0','AddressBook',1634557354811,1634557254892,1634557146016,0,1634557355038,1634559155020,1800000,_binary '�\�\0sr\0java.lang.Integer⠤���8\0I\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0'),('ServiceStorex6j1r9nfnscg1eyb5cahqstaw0','','0.0.0.0','AddressBook',1634556967941,1634556967446,1634556833599,0,1634556967992,1634558767992,1800000,_binary '�\�\0sr\0java.lang.Integer⠤���8\0I\0valuexr\0java.lang.Number����\��\0\0xp\0\0\0\0');
 /*!40000 ALTER TABLE `JettySessions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -102,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-21 17:16:17
+-- Dump completed on 2021-10-18 17:30:11

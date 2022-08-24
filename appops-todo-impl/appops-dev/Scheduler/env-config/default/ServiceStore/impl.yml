@@ -1,5 +1,3 @@
----
-annotationClass: "org.appops.slim.base.core.ServiceStore"
-config: {}
 modules:
-- "org.appops.service.impl.guice.ServiceStoreModule"
+      - "org.appops.service.impl.guice.ServiceStoreModule"
+annotationClass: "org.appops.slim.base.core.ServiceStore"
