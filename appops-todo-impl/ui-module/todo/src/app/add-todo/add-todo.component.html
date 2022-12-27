@@ -1,0 +1,31 @@
+<div class="example-container">
+    <form [formGroup]="this.todoForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+
+        <div class="form-group">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label> Todo Name</mat-label>
+                <input formControlName="todoName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.todoName.errors}" matInput>
+            </mat-form-field>
+            <div class="invalid-feedback" *ngIf="submitted && formControls.todoName.errors">This is required</div>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="outline" class="input">
+                <mat-label> Tag Address </mat-label>
+                <mat-select formControlName="address" class="form-control">
+                    <mat-option *ngFor="let addr of todoServi.addressList" [value]="addr.address">
+                        {{addr.address}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <br><br>
+        <mat-button-field>
+            <br>
+
+            <button id="cancel" mat-raised-button (click)="onCancel()">Cancel</button>
+            <button id="save" mat-raised-button type="submit" style="margin-left: 2%;">Save Todo</button>
+            <br>
+        </mat-button-field>
+    </form>
+</div>

@@ -1,0 +1,3 @@
+annotationClass: org.appops.hello.core.HelloService
+modules:
+- org.appops.hello.injection.HelloServiceSlimModule
